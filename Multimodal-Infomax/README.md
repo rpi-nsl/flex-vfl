@@ -1,43 +1,36 @@
-Extension of Multimodal-Infomax repository for Flex-VFL
+# Flexible Vertical Federated Learning
 
-Requires MOSEI dataset to be in a folder named 'datasets'.
+This directory builds off of the [Multimodal-Infomax repo](https://github.com/declare-lab/Multimodal-Infomax) to simulate a vertical federated learning setting and run Flex-VFL.
 
-To run all experiments sequentially:
-    python run_sbatch.py
+## Running Flex-VFL with CMU-MOSEI dataset
 
-To plot existing results:
-    python plot_time.py 
-    python plot_adapt.py 
+### Dataset
 
-Original README below:
-#####################################################
-# MultiModal-InfoMax
+Download the CMU-MOSI and CMU-MOSEI dataset from [Google Drive](https://drive.google.com/drive/folders/1djN_EkrwoRLUt7Vq_QfNZgCl_24wBiIK?usp=sharing) or [Baidu Disk](https://pan.baidu.com/s/1Wxo4Bim9JhNmg8265p3ttQ) (extraction code: g3m2). Place them under the folder `Multimodal-Infomax/datasets`
 
-This repository contains the official implementation code of the paper [Improving Multimodal Fusion with Hierarchical Mutual Information Maximization for Multimodal Sentiment Analysis](https://arxiv.org/pdf/2109.00412.pdf), accepted at **EMNLP 2021**.
+### Dependencies
 
-:fire:  If you would be interested in other multimodal works in our DeCLaRe Lab, welcome to visit the [clustered repository](https://github.com/declare-lab/multimodal-deep-learning)
-
-## Introduction
-Multimodal-informax (MMIM) synthesizes fusion results from multi-modality input through a two-level mutual information (MI) maximization. We use BA (Barber-Agakov) lower bound and contrastive predictive coding as the target function to be maximized. To facilitate the computation, we design an entropy estimation module with associated history data memory to facilitate the computation of BA lower bound and the training process.
-
-![Alt text](img/ModelFigSingle.png?raw=true "Model")
-
-## Usage
-1. Download the CMU-MOSI and CMU-MOSEI dataset from [Google Drive](https://drive.google.com/drive/folders/1djN_EkrwoRLUt7Vq_QfNZgCl_24wBiIK?usp=sharing) or [Baidu Disk](https://pan.baidu.com/s/1Wxo4Bim9JhNmg8265p3ttQ) (extraction code: g3m2). Place them under the folder `Multimodal-Infomax/datasets`
-
-2. Set up the environment (need conda prerequisite)
+Set up the environment (need conda prerequisite)
 ```
 conda env create -f environment.yml
 conda activate MMIM
 ```
 
-3. Start training
-```
-python main.py --dataset mosi --contrast
+### Running Flex-VFL
+
+To run all experiments sequentially:
+```.bash
+python run_sbatch.py
 ```
 
-## Citation
-Please cite our paper if you find our work useful for your research:
+To plot existing results:
+```.bash
+python plot_time.py 
+python plot_adapt.py 
+```
+
+### Citation
+This directory is an extension of the Momentum Contrast (MoCo) with Alignment and Uniformity Losses for C-VFL: [github.com/SsnL/moco_align_uniform](https://github.com/SsnL/moco_align_uniform). Please cite the following paper if you use this work in your research:
 ```bibtex
 @article{han2021improving,
   title={Improving Multimodal Fusion with Hierarchical Mutual Information Maximization for Multimodal Sentiment Analysis},
@@ -46,6 +39,3 @@ Please cite our paper if you find our work useful for your research:
   year={2021}
 }
 ```
-
-## Contact 
-Should you have any question, feel free to contact me through [henryhan88888@gmail.com](henryhan88888@gmail.com)
